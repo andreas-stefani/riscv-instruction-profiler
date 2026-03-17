@@ -1,13 +1,13 @@
 # RISC-V Instruction Usage Profiler
-**Andreas Stefani** - University of Cyprus, Computer Science
+**Andreas Stefani** - University of Cyprus, Department of Computer Science
 
 ## About
-A small tool I built to analyze which RISC-V instructions are used by real programs, and which ones are never touched.
-The motivation comes from the paper Professor H. Volos sent me, on FlexIC/RISSP, that talks about how extreme edge devices can get away with a minimal instruction subset rather than implementing the full ISA.
+A small tool I built to analyze which RISC-V instructions are used by real programs and which remain unused.
+I was motivated to experiment with these concepts after reading the paper Professor H. Volos shared with me, on FlexIC/RISSP, which talks about how extreme edge devices can get away with a minimal instruction subset rather than implementing the full ISA.
 Reference: https://dl.acm.org/doi/10.1145/3725843.3756036
 
 ## How it works
-Five C benchmark programs stress different aspects of a CPU:
+Five C benchmark programs stress different aspects of a CPU, created to minimize the number of statically linked libraries inside the binaries.
 
 | Program | What it stresses |
 |---------|-----------------|
@@ -24,7 +24,7 @@ All benchmark input sizes are defined as compile-time constants (`#define`) at t
 `analyse.py` compares the instructions found in each binary against the full RV64I+M instruction set and reports which instructions are used, unused, and never touched across any benchmark.
 
 ## Results
-Out of 83 instructions in RV64I+M, 27 of them are never used across any benchmark.
+Out of 83 instructions in RV64I+M, 27 of them are never used across all benchmarks.
 This suggests a FlexIC chip targeting these workloads could drop them with no impact on correctness.
 
 | Benchmark | Instructions Used | Instructions Missing |
@@ -34,9 +34,10 @@ This suggests a FlexIC chip targeting these workloads could drop them with no im
 | `prime_factor.c` | 53 | 30 |
 | `quicksort.c` | 54 | 29 |
 | `sieve.c` | 52 | 31 |
-| **Union (any benchmark)** | **56** | **27** |
+| **All Benchmarks** | **56** | **27** |
 
-Never used across all benchmarks:
+Instructions that are never used across all benchmarks:
+
 `call` `divu` `divuw` `divw` `ebreak` `lb` `lwu` `mulh` `mulhsu` `mulhu`
 `remu` `remuw` `remw` `seqz` `sgtz` `slt` `slti` `sltiu` `sltu` `sltz`
 `snez` `sra` `sraw` `srlw` `tail` `xor` `xori`
@@ -52,5 +53,5 @@ Output is saved in `output/`.
 A prebuilt toolchain can be found at https://github.com/riscv-collab/riscv-gnu-toolchain
 
 ## Notes
-This is static analysis - it checks which instructions appear in the binary, not how many times they execute at runtime.
-Dynamic profiling (e.g. via spike) is a natural next step and something I plan to explore further.
+This is a static analysis - it checks which instructions appear in the binary, not how many times they execute at runtime.
+Dynamic profiling (via spike) is a natural next step and something I wish to delve into further in the future.
