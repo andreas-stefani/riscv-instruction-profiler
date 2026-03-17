@@ -1,5 +1,5 @@
 # RISC-V Instruction Usage Profiler
-**Andreas Stefani** — University of Cyprus, Computer Science
+**Andreas Stefani** - University of Cyprus, Computer Science
 
 ## About
 A small tool I built to analyze which RISC-V instructions are actually used by real programs, and which ones are never touched.
@@ -53,5 +53,5 @@ Output is saved in `output/`.
 A prebuilt toolchain can be found at https://github.com/riscv-collab/riscv-gnu-toolchain
 
 ## Notes
-This is static analysis — it checks which instructions appear in the binary, not how many times they execute at runtime.
+This is static analysis - it checks which instructions appear in the binary, not how many times they execute at runtime.
 Dynamic profiling (e.g. via spike) is a natural next step and something I plan to explore further.
