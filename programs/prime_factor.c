@@ -8,7 +8,6 @@ Prime Factorization - Arithmetic Stress Test
 #define P 999999000001
 
 int main (int argc, char **argv){
-    // long long to fit
     long long p = P;
             // i <= sqrt(p) same as i*i <= p
     for(long long i=2 ; i*i <= p ; i++){
