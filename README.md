@@ -16,6 +16,7 @@ Five C benchmark programs stress different aspects of a CPU:
 | `prime_factor.c` | Integer arithmetic (trial division on large semiprime) |
 | `quicksort.c` | Mixed — comparisons, swaps, recursion (1000 × 1000 loops) |
 | `sieve.c` | Array indexing and branching (Sieve of Eratosthenes, 10M) |
+
 All benchmark input sizes are defined as compile-time constants (`#define`) at the top of each source file.
 
 `run.sh` cross-compiles all five to RISC-V using `riscv64-unknown-elf-gcc`, disassembles the binaries with `objdump`, and runs `analyse.py` to analyze the results.
