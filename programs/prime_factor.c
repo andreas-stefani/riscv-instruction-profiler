@@ -9,7 +9,6 @@ Prime Factorization - Arithmetic Stress Test
 
 int main (int argc, char **argv){
     long long p = P;
-            // i <= sqrt(p) same as i*i <= p
     for(long long i=2 ; i*i <= p ; i++){
         while(p % i == 0){
             p = p/i ;
