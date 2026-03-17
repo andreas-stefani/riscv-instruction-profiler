@@ -32,7 +32,6 @@ RV64I = {
 OUTPUT_DIR = 'output'
 benchmarks = ['fib', 'cpy', 'primef', 'qsort', 'sieve']
 
-# Parse dumps
 all_used = {}
 for name in benchmarks:
     path = os.path.join(OUTPUT_DIR, f'{name}.dump')
@@ -49,7 +48,6 @@ for name in benchmarks:
 union_used = set().union(*all_used.values())
 never_used = RV64I - union_used
 
-# Terminal output
 print("=" * 60)
 print("RISC-V Instruction Subset Analysis")
 print(f"Total instructions in RV64I+M : {len(RV64I)}")
