@@ -15,7 +15,6 @@ int main (int argc, char **argv){
         A[i]=1;
     A[0]=0;
     A[1]=0;
-    // p <= sqrt(n) same as p*p <= n
     for(int p = 2 ; p * p <= n ; p++)
         for(int i=p*p ; i < n ; i+=p)
             A[i]=0;
