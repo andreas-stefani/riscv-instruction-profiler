@@ -3,7 +3,8 @@
 
 ## About
 A small tool I built to analyze which RISC-V instructions are used by real programs and which remain unused.
-I was motivated to experiment with these concepts after reading the paper Professor H. Volos shared with me, on FlexIC/RISSP, which talks about how extreme edge devices can get away with a minimal instruction subset rather than implementing the full ISA.
+I was motivated to experiment with these concepts after reading the paper Professor H. Volos shared with me, on FlexIC/RISSP, which talks about how extreme edge devices can get away with a minimal instruction subset rather than implementing the full ISA.  
+
 Reference: https://dl.acm.org/doi/10.1145/3725843.3756036
 
 ## How it works
