@@ -1,5 +1,5 @@
 /*
- = *=======================================================================
+==========================================================================
  Quicksort - Divide & Conquer Sorting
  > Stress test: stresses CPU comparisons, swaps and recursive call stack.
  > Uses middle-element pivot partitioning on a randomly generated array.
