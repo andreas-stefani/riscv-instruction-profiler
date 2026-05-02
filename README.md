@@ -8,7 +8,10 @@ I was motivated to experiment with these concepts after reading the paper Profes
 Reference: https://dl.acm.org/doi/10.1145/3725843.3756036
 
 ## How it works
-Five C benchmark programs stress different aspects of a CPU, created to minimize the number of statically linked libraries inside the binaries.
+Five C benchmark programs are compiled to RISC-V and statically disassembled. Each benchmark targets a 
+different execution pattern to approximate a realistic general-purpose workload mix. The goal is to get 
+an upper bound on the reachable instruction subset under typical C code, so the never-used set represents 
+a conservative lower bound on what a RISSP could safely drop.
 
 | Program | What it stresses |
 |---------|-----------------|
